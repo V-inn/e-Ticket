@@ -1,6 +1,15 @@
 function comprar(){
-    var tipoIngresso = document.getElementById("tipo-ingresso").value;
     var quantidade = document.getElementById("qtd").value;
+
+    if(quantidade < 1){
+        alert("Quantidade deve ser maior que 0");
+        return;
+    }else if(quantidade > 10){
+        alert("O limite por compra são 10 ingressos");
+        return;
+    }
+
+    var tipoIngresso = document.getElementById("tipo-ingresso").value;
     var itemSelecionado = document.getElementById(`qtd-${tipoIngresso}`);
     var novaQuantidadeDisponivel = parseInt(itemSelecionado.innerHTML) - quantidade;
 
